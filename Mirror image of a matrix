@@ -1,0 +1,48 @@
+import java.util.Scanner;
+class matrix_5
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the length of rows and columns");
+        int m=sc.nextInt();
+        int A[][]=new int[m][m];
+        int mirror[][]=new int[m][m];
+        matrix_5 ob=new matrix_5();
+        if(m<=2&&m>=20)
+        {
+            System.out.println("Invalid input");
+        }
+        else
+        {
+            System.out.println("Enter the"+(m*m)+" integers");
+            for (int i = 0; i < m; i++) 
+            { 
+            for (int j = 0; j < m; j++) 
+            A[i][j]=sc.nextInt(); 
+            System.out.println(); 
+            }
+            for(int i=0;i<m;i++)
+            {
+                for(int j=0;j<m;j++)
+                {
+                    mirror[i][j]=A[i][m-j-1];
+                }
+            }
+            System.out.println('\f');
+            System.out.println("Original matrix");
+            ob.printarr(A,m);
+            System.out.println("mirror image");
+            ob.printarr(mirror,m);
+        }
+    }
+    public void printarr(int arr[][],int m)
+    {
+        for (int i = 0; i < m; i++) 
+        { 
+            for (int j = 0; j < m; j++) 
+            System.out.print(arr[i][j] + " "); 
+            System.out.println(); 
+        } 
+    }
+}
